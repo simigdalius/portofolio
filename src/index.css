@@ -1,0 +1,443 @@
+/* --- RETRO MINIMAL ARCADE THEME --- */
+:root {
+  --bg-color: #2a4d5c;
+  /* Το σκούρο πετρόλ φόντο */
+  --text-color: #bfede5;
+  /* Το ανοιχτό γαλαζοπράσινο για το κείμενο */
+  --accent-color: #66e48a;
+  /* Το retro πράσινο (για hover/links) */
+  --main-border-color: #bfede5;
+}
+
+/* 1. Εφαρμόζουμε το background και το animation ΜΟΝΟ στο body */
+/* --- CYBER-RETRO DYNAMIC BACKGROUND --- */
+body {
+  background-color: #121e2c !important;
+  /* Πιο σκούρο space blue για να κάνουν αντίθεση τα neon */
+  color: var(--text-color) !important;
+  font-family: 'Fira Code', monospace !important;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  /* 1. Συνδυασμός Neon πλέγματος και διαστημικού "cyber" εφέ */
+  background-image:
+    /* Κάθετες & Οριζόντιες γραμμές με απαλό neon φωτισμό */
+    linear-gradient(rgba(102, 228, 138, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 228, 138, 0.07) 1px, transparent 1px),
+    /* Dynamic Cyber-glows στο βάθος (μοβ και γαλάζια "σύννεφα") */
+    radial-gradient(circle at 20% 30%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(46, 196, 182, 0.12) 0%, transparent 50%);
+
+  background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100% !important;
+
+  /* 2. Διπλό animation: panGrid για την κίνηση & cyberGlow για τα neon "νεφελώματα" */
+  animation:
+    panGrid 5s linear infinite,
+    cyberGlow 15s ease-in-out infinite alternate;
+}
+
+/* 3. overlay για το κλασικό ρετρό Cyber Scanline (τρεμοπαίζει ελαφρώς σαν παλιός υπολογιστής) */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  background: linear-gradient(rgba(18, 30, 44, 0) 50%,
+      rgba(0, 0, 0, 0.15) 50%);
+  background-size: 100% 4px;
+  /* Δημιουργεί τις οριζόντιες γραμμές-σκιάσεις της οθόνης */
+  opacity: 0.4;
+}
+
+/* 4. Overlay για neon αστέρια / σωματίδια (matrix-like particles) που "πέφτουν" αμυδρά */
+.portfolio_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 10% 10%, var(--accent-color) 1px, transparent 1px),
+    radial-gradient(circle at 50% 80%, var(--text-color) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 90% 40%, var(--accent-color) 1px, transparent 1px),
+    radial-gradient(circle at 30% 60%, rgba(157, 78, 221, 0.8) 1.5px, transparent 1.5px);
+  background-size: 300px 300px;
+  animation: starFloat 40s linear infinite;
+}
+
+/* --- ANIMATIONS --- */
+
+/* Κίνηση του neon πλέγματος */
+@keyframes panGrid {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0% 0%, 0% 0%;
+  }
+
+  100% {
+    background-position: 50px 50px, 50px 50px, 0% 0%, 0% 0%;
+  }
+}
+
+/* Απαλή, "αναπνέουσα" κίνηση των neon χρωμάτων στο βάθος */
+@keyframes cyberGlow {
+  0% {
+    filter: hue-rotate(0deg) contrast(1);
+  }
+
+  100% {
+    filter: hue-rotate(15deg) contrast(1.05);
+  }
+}
+
+/* Πολύ αργή κίνηση των "αστεριών/pixels" στο βάθος */
+@keyframes starFloat {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: 0px -300px;
+    /* Κίνηση προς τα πάνω, σαν data-rain/διάστημα */
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.game_title {
+  color: var(--text-color) !important;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 1.5rem;
+  /* Μεγαλώσαμε λίγο το μέγεθος γιατί η Fira Code είναι κανονική γραμματοσειρά */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0.8;
+  /* Κάνει το κείμενο 20% πιο διαφανές, αναδεικνύοντας τους τίτλους */
+}
+
+.portfolio_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.left_column {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.right_column {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Ρύθμιση μεγέθους για τα κουτιά των projects */
+.project_web {
+  grid-column: span 2;
+  min-height: 200px;
+}
+
+/* 1ο: Ορθογώνιο */
+
+.project_app {
+  grid-column: span 1;
+  min-height: 200px;
+}
+
+/* 2ο: Τετράγωνο */
+
+.project_gfx {
+  grid-column: span 2;
+  min-height: 200px;
+}
+
+/* 3ο: Ως έχει (τετράγωνο) */
+
+.project_gamedev {
+  grid-column: span 1;
+  min-height: 200px;
+}
+
+/* 4ο: Ως έχει (ορθογώνιο) */
+
+/* Επαναχρησιμοποίηση του δικού σου style για τα κουτιά */
+.bento_box {
+  background-color: rgba(191, 237, 229, 0.05);
+  border: 3px solid var(--main-border-color, #bfede5);
+  padding: 20px;
+  box-shadow: 6px 6px 0px 0px var(--accent-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento_box:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 10px 10px 0px 0px var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* --- STYLES ΓΙΑ ΤΙΣ ΚΛΙΚΑΡΙΣΙΜΕΣ ΚΑΡΤΕΣ --- */
+.clickable_box {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  /* Φιξαρισμένο ύψος για να μην μεγαλώνουν */
+  overflow: hidden;
+  /* Κρύβει ό,τι περισσεύει */
+}
+
+.tech_icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 2.6rem;
+  margin-top: 15px;
+  color: var(--text-color);
+}
+
+/* Στοχεύουμε τα ίδια τα εικονίδια (svg) μέσα στο tech_icons για να τους δώσουμε κίνηση */
+.tech_icons svg {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease;
+}
+
+/* Το animation όταν περνάς το ποντίκι από πάνω */
+.tech_icons svg:hover {
+  transform: translateY(-8px) scale(1.2);
+  /* Πηγαίνει ελαφρώς πάνω και μεγαλώνει */
+  color: var(--accent-color);
+  /* Αλλάζει στο ρετρό πράσινο χρώμα */
+}
+
+/* --- STYLES ΓΙΑ ΤΑ CONTACT ICONS --- */
+.contact_icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+  font-size: 2.5rem;
+}
+
+.contact_link {
+  border: none !important;
+  background-color: transparent !important;
+  transition: transform 0.2s ease;
+  padding: 0;
+}
+
+/* Στοχεύουμε απευθείας τα ίδια τα εικονίδια (svg) για να πάρουν το σωστό χρώμα */
+.contact_link svg {
+  color: var(--text-color) !important;
+  fill: var(--text-color) !important;
+  transition: color 0.2s ease, fill 0.2s ease;
+}
+
+/* Αλλαγή χρώματος σε retro πράσινο στο hover */
+.contact_link:hover {
+  transform: translateY(-5px);
+  /* Κάνει ένα μικρό αλματάκι προς τα πάνω */
+}
+
+.contact_link:hover svg {
+  color: var(--accent-color) !important;
+  fill: var(--accent-color) !important;
+}
+
+/* --- STYLES ΓΙΑ ΟΛΑ ΤΑ READ MORE (ABOUT & PROJECTS) --- */
+.read_more,
+a.read_more,
+span.read_more {
+  color: var(--text-color) !important;
+  text-decoration: none !important;
+  border-bottom: 2px dashed var(--text-color) !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  margin-top: auto;
+  /* Το σπρώχνει πάντα στο κάτω μέρος του κουτιού */
+  display: inline-block;
+  width: fit-content;
+}
+
+.read_more:hover,
+a.read_more:hover,
+span.read_more:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-color) !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: var(--bg-color) !important;
+}
+
+/* --- STYLES ΓΙΑ ΤΗ ΣΕΛΙΔΑ ABOUT (FOLDER TAB LAYOUT) --- */
+.folder_container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Το κουμπί Home που προεξέχει σαν καρτέλα */
+.folder_tab {
+  align-self: flex-start;
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-border-color);
+  border-bottom: none;
+  padding: 15px 30px;
+  font-family: 'Fira Code', monospace;
+  /* (ή όποια άλλη έβαλες στους τίτλους) */
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-bottom: -3px;
+  z-index: 10;
+  position: relative;
+  /* Προσθέτουμε transition για ομαλό animation σε όλα */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Το animation όταν περνάς το ποντίκι από πάνω */
+.folder_tab:hover {
+  background-color: var(--accent-color);
+  /* Γεμίζει πράσινο */
+  color: var(--bg-color);
+  /* Σκοτεινιάζουν τα γράμματα */
+  padding-top: 25px;
+  /* Η καρτέλα "ψηλώνει" προς τα πάνω */
+  border-color: var(--accent-color);
+  /* Αλλάζει και το περίγραμμα */
+}
+
+/* Το κυρίως κουτί που έχει μέσα το About Me */
+.folder_content {
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-border-color);
+  padding: 40px;
+  box-shadow: 10px 10px 0px 0px var(--accent-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Το εσωτερικό κουτί για το Contact */
+.inner_contact_box {
+  border: 2px dashed var(--main-border-color);
+  padding: 30px;
+  margin-top: 50px;
+  background-color: rgba(191, 237, 229, 0.05);
+}
+
+/* --- RESPONSIVE DESIGN (ΚΙΝΗΤΑ & TABLETS) --- */
+@media (max-width: 900px) {
+
+  /* 1. Στοιβάζει την αριστερή (About) και δεξιά (Projects) στήλη */
+  .portfolio_container {
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  /* 2. Αλλάζει το grid των projects σε 1 κεντρική στήλη */
+  .projects_grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 3. Ακυρώνει τα "ορθογώνια" σχήματα (span 2) ώστε να χωράνε στην οθόνη του κινητού */
+  .project_web,
+  .project_app,
+  .project_gfx,
+  .project_gamedev {
+    grid-column: span 1 !important;
+  }
+
+  /* 4. Επιτρέπει στα κουτιά να μεγαλώσουν σε ύψος αν χρειαστεί για να χωρέσουν τα εικονίδια */
+  .clickable_box {
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+/* Για λίγο μεγαλύτερες οθόνες (μικρά laptops/μεγάλα tablets) κάνουμε το grid 2 στήλες */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .projects_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project_web,
+  .project_gamedev {
+    grid-column: span 2 !important;
+    /* Τα μεγάλα πιάνουν όλη τη γραμμή */
+  }
+}
+
+/* --- STYLES ΓΙΑ ΤΟ ΚΟΥΜΠΙ ΓΛΩΣΣΑΣ --- */
+.lang_button {
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+  filter: drop-shadow(4px 4px 0px var(--accent-color));
+}
+
+.lang_button:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px solid var(--main-border-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+.bento_box.clickable_box:active,
+.folder_tab:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
+}
