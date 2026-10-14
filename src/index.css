@@ -13,13 +13,13 @@
 /* --- CYBER-RETRO DYNAMIC BACKGROUND --- */
 body {
   background-color: #121e2c !important;
-  /* Πιο σκούρο space blue για να κάνουν αντίθεση τα neon */
   color: var(--text-color) !important;
   font-family: 'Fira Code', monospace !important;
   margin: 0;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  background-attachment: fixed !important;
 
   /* 1. Συνδυασμός Neon πλέγματος και διαστημικού "cyber" εφέ */
   background-image:
@@ -41,17 +41,17 @@ body {
 /* 3. overlay για το κλασικό ρετρό Cyber Scanline (τρεμοπαίζει ελαφρώς σαν παλιός υπολογιστής) */
 body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: calc(100% + 100px);
+  /* <-- ΕΔΩ ΕΙΝΑΙ ΤΟ ΜΥΣΤΙΚΟ: Αναγκάζει τις γραμμές να κατέβουν 100px παρακάτω! */
   pointer-events: none;
   z-index: 9998;
   background: linear-gradient(rgba(18, 30, 44, 0) 50%,
       rgba(0, 0, 0, 0.15) 50%);
   background-size: 100% 4px;
-  /* Δημιουργεί τις οριζόντιες γραμμές-σκιάσεις της οθόνης */
   opacity: 0.4;
 }
 
@@ -143,6 +143,8 @@ p {
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
+  position: relative;
+
 }
 
 .left_column {
@@ -356,6 +358,68 @@ span.read_more:hover {
   z-index: 1;
 }
 
+/* --- MULTI-TAB NAVIGATION --- */
+.tabs_wrapper {
+  display: flex;
+  align-items: flex-end;
+  /* Ευθυγραμμίζει τις καρτέλες στο κάτω μέρος */
+  flex-wrap: wrap;
+  /* Σε κινητά θα πέφτουν στην από κάτω γραμμή */
+  gap: 6px;
+  margin-left: 20px;
+  margin-bottom: -3px;
+  /* Τραβάει τα tabs κάτω για να "ενωθούν" με το border του φακέλου */
+  position: relative;
+  z-index: 10;
+}
+
+/* Η ενεργή καρτέλα (Μπροστά) */
+.folder_tab_active {
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-border-color);
+  border-bottom: 3px solid var(--bg-color);
+  /* Εξαφανίζει τη γραμμή για να "ενωθεί" με το κουτί */
+  padding: 12px 25px;
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-color);
+  /* Φωτισμένη με το ρετρό πράσινο */
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 10;
+  border-radius: 6px 6px 0 0;
+  /* Στρογγυλεμένες πάνω γωνίες σαν φάκελος */
+}
+
+/* Οι ανενεργές καρτέλες (Στο βάθος) */
+.folder_tab_inactive {
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-border-color);
+  border-bottom: 3px solid var(--main-border-color);
+  /* Έχουν περίγραμμα κάτω για να φαίνονται πίσω από τον φάκελο */
+  padding: 8px 15px;
+  font-family: 'Fira Code', monospace;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  opacity: 0.5;
+  /* Πιο αχνές γιατί είναι πίσω */
+  position: relative;
+  z-index: 1;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 3px;
+  /* Σηκώνονται ελαφρώς για να "πατάνε" πίσω από τη γραμμή του κυρίως κουτιού */
+}
+
+/* Όταν περνάς το ποντίκι, η καρτέλα στο βάθος "σηκώνεται" για να την επιλέξεις */
+.folder_tab_inactive:hover {
+  opacity: 1;
+  color: var(--accent-color);
+  transform: translateY(-5px);
+  background-color: rgba(102, 228, 138, 0.05);
+}
+
 /* Το εσωτερικό κουτί για το Contact */
 .inner_contact_box {
   border: 2px dashed var(--main-border-color);
@@ -440,4 +504,98 @@ span.read_more:hover {
 .folder_tab:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px 0px var(--accent-color);
+}
+
+/* --- 3D NINTENDO DS CARTRIDGE HOVER EFFECT --- */
+
+.game_thumbnail_link {
+  /* Η προοπτική δίνει την ψευδαίσθηση του 3D βάθους όταν η εικόνα περιστρέφεται */
+  perspective: 800px;
+}
+
+.game_thumbnail_link img {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 5px;
+  /* Κλασικές γωνίες κασέτας */
+  box-shadow: 0px 0px 0px transparent;
+}
+
+.game_thumbnail_link:hover img {
+  /* 1. Βγαίνει από το slot (ανασηκώνεται), μεγαλώνει λίγο και γέρνει 3D προς τα πίσω */
+  transform: translateY(-15px) scale(1.05) rotateX(15deg);
+
+  border-color: var(--accent-color) !important;
+
+  /* 2. Κόβουμε την πάνω δεξιά γωνία για να πάρει το σχήμα κάρτας DS / SD! */
+  border-radius: 5px 25px 5px 5px;
+
+  /* 3. Το "χοντρό" 3D πλαστικό πάχος της κασέτας */
+  box-shadow:
+    0px 2px 0px var(--bg-color),
+    0px 4px 0px var(--main-border-color),
+    0px 6px 0px var(--accent-color),
+    /* Ο φωτισμένος πάτος */
+    0px 15px 20px rgba(0, 0, 0, 0.8);
+  /* Η σκιά που ρίχνει κάτω στην οθόνη */
+}
+
+/* 4. Το κείμενο "play" φωτίζεται με neon effect όταν πας το ποντίκι στην κασέτα */
+.game_thumbnail_link span {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.game_thumbnail_link:hover span {
+  color: var(--accent-color) !important;
+  text-shadow: 0px 0px 8px var(--accent-color);
+}
+
+
+
+/* --- ABOUT GALLERY HOVER EFFECTS (ISOLATED) --- */
+.gallery_frame {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  border-radius: 3px;
+  background-color: var(--bg-color);
+  /* Αποτρέπει διαρροές σκιών */
+}
+
+.gallery_frame img {
+  transition: all 0.3s ease;
+  filter: grayscale(15%) brightness(0.9);
+  display: block;
+}
+
+/* Εφέ ανύψωσης και σκιάς στο κάδρο */
+.gallery_frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 0px 10px rgba(102, 228, 138, 0.4), 0px 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Εφέ zoom και χρώματος στην εικόνα */
+.gallery_frame:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%) brightness(1.15);
+  border-color: var(--accent-color) !important;
+}
+
+/* Αόρατο Scanline overlay που ενεργοποιείται μόνο στο hover της συγκεκριμένης εικόνας */
+.gallery_frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(18, 30, 44, 0) 50%, rgba(102, 228, 138, 0.15) 50%);
+  background-size: 100% 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gallery_frame:hover::after {
+  opacity: 1;
+  animation: glitchLines 0.2s infinite;
 }

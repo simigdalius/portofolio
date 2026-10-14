@@ -8,6 +8,7 @@ import './index.css';
 import { FaPython, FaReact, FaHtml5, FaCss3Alt, FaJava, FaPhp, FaMicrochip, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiFlask, SiGodotengine } from "react-icons/si";
+import { SiSqlite } from "react-icons/si";
 
 const translations = {
   en: {
@@ -27,7 +28,7 @@ const translations = {
     contactTitle: "Επικοινωνια",
     portfolioTitle: "Πορτοφολιο",
     readMore: "περισσοτερα >>",
-    webTitle: "ΑΝΑΠΤΥΞΗ WEB",
+    webTitle: "WEB DEVELOPMENT",
     appTitle: "ΕΦΑΡΜΟΓΕΣ",
     groupTitle: "ΟΜΑΔΙΚΑ PROJECT",
     gameTitle: "ΑΝΑΠΤΥΞΗ ΠΑΙΧΝΙΔΙΩΝ"
@@ -40,20 +41,60 @@ function App() {
 
   const t = translations[lang];
 
-  // Ο "τροχονόμος" των σελίδων
-  if (page === 'about') return <About setPage={setPage} />;
-  if (page === 'web') return <Webd setPage={setPage} />;
-  if (page === 'app') return <AppU setPage={setPage} />;
-  if (page === 'group') return <Group setPage={setPage} />;
-  if (page === 'gamedev') return <GameD setPage={setPage} />;
+
+  if (page === 'about') return <About setPage={setPage} lang={lang} setLang={setLang} />;
+  if (page === 'web') return <Webd setPage={setPage} lang={lang} setLang={setLang} />;
+  if (page === 'app') return <AppU setPage={setPage} lang={lang} setLang={setLang} />;
+  if (page === 'group') return <Group setPage={setPage} lang={lang} setLang={setLang} />;
+  if (page === 'gamedev') return <GameD setPage={setPage} lang={lang} setLang={setLang} />;
 
   return (
     <div className="portfolio_container">
 
       <div className="left_column">
-        <div className="bento_box clickable_box" style={{ flex: 1, display: 'flex', flexDirection: 'column' }} onClick={() => setPage('about')}>
-          <h2 className="title" style={{ marginTop: 0 }}>{t.aboutTitle}</h2>
-          <p style={{ flex: 1, lineHeight: '1.4' }}>{t.aboutText}</p>
+        <div className="bento_box clickable_box" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }} onClick={() => setPage('about')}>
+          <h2 className="title" style={{ marginTop: 0, marginBottom: '10px' }}>{t.aboutTitle}</h2>
+          <p style={{ lineHeight: '1.4', margin: '0 0 15px 0' }}>{t.aboutText}</p>
+
+          {/* Gallery Box */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            width: '100%',
+            height: '185px',
+            marginBottom: '15px'
+          }}>
+            {/* 1η Σειρά */}
+            <div className="gallery_frame" style={{ width: '100%', height: '50px', overflow: 'hidden' }}>
+              <img
+                src="/avatar.png"
+                alt="Avatar"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', border: '1px solid var(--main-border-color)', borderRadius: '3px', opacity: 0.9 }}
+              />
+            </div>
+
+            {/* 2η Σειρά */}
+            <div style={{ display: 'flex', gap: '8px', width: '100%', height: '127px' }}>
+              <div className="gallery_frame" style={{ flex: 1, width: '50%', height: '100%', overflow: 'hidden' }}>
+                <img
+                  src="/workingstation.jpg"
+                  alt="Working station"
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', border: '1px solid var(--main-border-color)', borderRadius: '3px', opacity: 0.9 }}
+                />
+              </div>
+
+              <div className="gallery_frame" style={{ flex: 1, width: '50%', height: '100%', overflow: 'hidden' }}>
+                <img
+                  src="/egw.jpg"
+                  alt="Me"
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', border: '1px solid var(--main-border-color)', borderRadius: '3px', opacity: 0.9 }}
+                />
+              </div>
+            </div>
+          </div>
+
+
           <span className="read_more" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>{t.readMore}</span>
         </div>
 
@@ -61,8 +102,8 @@ function App() {
           <h2 className="title" style={{ marginTop: 0 }}>{t.contactTitle}</h2>
           <div className="contact_icons">
             <a href="https://github.com/simigdalius" target="_blank" rel="noreferrer" className="contact_link" title="GitHub"><FaGithub /></a>
-            <a href="#" target="_blank" rel="noreferrer" className="contact_link" title="LinkedIn"><FaLinkedin /></a>
-            <a href="mailto:your_email@gmail.com" className="contact_link" title="Email"><FaEnvelope /></a>
+            <a href="https://www.linkedin.com/in/aggelikh-simigdali-bb8b33443" target="_blank" rel="noreferrer" className="contact_link" title="LinkedIn"><FaLinkedin /></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aggelikhsimigdali@gmail.com" target="_blank" rel="noreferrer" className="contact_link" title="Email"><FaEnvelope /></a>
           </div>
         </div>
       </div>
@@ -71,7 +112,7 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.portfolioTitle}</h1>
           <span className="lang_button" onClick={() => setLang(lang === 'el' ? 'en' : 'el')}>
-            {lang === 'el' ? '🇬🇧' : '🇬🇷'}
+            {lang === 'el' ? 'EN' : '🇬🇷'}
           </span>
         </div>
 
@@ -81,16 +122,16 @@ function App() {
             <h3 className="game_title" style={{ marginTop: 0 }}>{t.webTitle}</h3>
             <p style={{ margin: 0 }}>GitPets, machineQuestioning...</p>
             <div className="tech_icons">
-              <FaPython title="Python" /> <SiFlask title="Flask" /> <FaCss3Alt title="CSS3" /> <FaReact title="React" /> <IoLogoJavascript title="JavaScript" />
+              <FaPython title="Python" /> <SiFlask title="Flask" /> <FaCss3Alt title="CSS3" /> <FaReact title="React" /> <IoLogoJavascript title="JavaScript" /><SiSqlite title="SQLite" />
             </div>
             <span className="read_more" style={{ alignSelf: 'flex-end' }}>{t.readMore}</span>
           </div>
 
           <div className="bento_box project_app clickable_box" onClick={() => setPage('app')}>
             <h3 className="game_title" style={{ marginTop: 0 }}>{t.appTitle}</h3>
-            <p style={{ margin: 0 }}>HorusAcces, file comparison...</p>
+            <p style={{ margin: 0 }}>HorusAcces..</p>
             <div className="tech_icons">
-              <FaPython title="Python" /> <FaJava title="Java Swing" />
+              <FaPython title="Python" /> <FaJava title="Java Swing" /> <SiSqlite title="SQLite" /><SiGodotengine title="Godot" />
             </div>
             <span className="read_more" style={{ alignSelf: 'flex-end' }}>{t.readMore}</span>
           </div>
@@ -108,7 +149,7 @@ function App() {
             <h3 className="game_title" style={{ marginTop: 0 }}>{t.groupTitle}</h3>
             <p style={{ margin: 0 }}>smart home IoT, card game...</p>
             <div className="tech_icons">
-              <FaPhp title="PHP" /> <FaHtml5 title="HTML" /> <FaCss3Alt title="CSS" /> <IoLogoJavascript title="JavaScript" /> <FaReact title="React" /> <FaMicrochip title="ESP32" />
+              <FaPhp title="PHP" /> <FaHtml5 title="HTML" /> <FaCss3Alt title="CSS" /> <IoLogoJavascript title="JavaScript" /> <FaReact title="React" /> <FaMicrochip title="ESP32" /><FaPython title="Python" /><SiSqlite title="SQLite" />
             </div>
             <span className="read_more" style={{ alignSelf: 'flex-end' }}>{t.readMore}</span>
           </div>
