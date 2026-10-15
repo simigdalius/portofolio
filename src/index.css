@@ -599,3 +599,64 @@ span.read_more:hover {
   opacity: 1;
   animation: glitchLines 0.2s infinite;
 }
+
+/* --- ΣΠΑΣΙΜΟ ΜΕΓΑΛΩΝ ΛΕΞΕΩΝ ΓΙΑ ΝΑ ΜΗΝ ΒΓΑΙΝΟΥΝ ΕΚΤΟΣ ΚΟΥΤΙΩΝ --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.game_title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* --- ΕΙΔΙΚΕΣ ΔΙΟΡΘΩΣΕΙΣ ΜΟΝΟ ΓΙΑ ΚΙΝΗΤΑ (Mobile Fixes) --- */
+@media (max-width: 900px) {
+
+  /* 1. Τα Tabs γίνονται swipeable (scroll) οριζόντια */
+  .tabs_wrapper {
+    flex-wrap: nowrap;
+    /* Απαγορεύουμε να πέσουν σε δεύτερη γραμμή */
+    overflow-x: auto;
+    /* Ενεργοποιούμε το οριζόντιο scroll */
+    margin-left: 0;
+    padding-left: 10px;
+    /* Κρύβουμε την μπάρα κύλισης για τέλειο αισθητικό αποτέλεσμα */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tabs_wrapper::-webkit-scrollbar {
+    display: none;
+    /* Κρύβει την μπάρα σε Chrome/Safari */
+  }
+
+  .folder_tab_active,
+  .folder_tab_inactive {
+    flex-shrink: 0;
+    /* Εμποδίζει τα tabs να ζουληχτούν */
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    /* Τα κάνουμε λίγο πιο συμμαζεμένα */
+  }
+
+  /* 2. Μικραίνουμε τους τίτλους και τα εσωτερικά κενά */
+  .title {
+    font-size: 1.8rem !important;
+    /* Εξαναγκάζει τα 3rem να γίνουν 1.8rem στα κινητά */
+  }
+
+  .folder_content {
+    padding: 20px;
+    /* Μικραίνουμε το κενό του φακέλου (από 40px) για να έχουν χώρο τα κείμενα */
+  }
+
+  .bento_box {
+    padding: 15px;
+    /* Κερδίζουμε λίγο χώρο και στα bento boxes */
+  }
+}
