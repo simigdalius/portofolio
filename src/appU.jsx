@@ -181,6 +181,9 @@ function AppU({ setPage, lang, setLang }) {
 
                 </div>
             </div>
+            <div style={{ width: '100%', textAlign: 'center', marginTop: '40px', paddingTop: '20px', borderTop: '1px dashed var(--main-border-color)', opacity: 0.6, fontSize: '0.9rem', fontFamily: "'Fira Code', monospace" }}>
+                SYSTEM.ONLINE // © {new Date().getFullYear()} ANGELIKI SIMIGDALI // ALL SYSTEMS FUNCTIONAL.
+            </div>
         </div>
     );
 }

@@ -23,7 +23,7 @@ const translations = {
         robinTitle: "Robin Boom",
         robinDesc: "An explosive, 2D action top-down shooter.",
         robinLearn: "2D game physics, bullet mechanics, collision detection, drawing assets and animations, and crafting an engaging story.",
-        lastTitle: "Last Down / Last Down 3D",
+        lastTitle: "Last Down 3D",
         lastDesc: "A challenging game concept developed and explored in both 2D and 3D environments.",
         lastLearn: "Implementing inventory systems, 3D game mechanics, bullet physics, collision detection, and story creation."
     },
@@ -47,7 +47,7 @@ const translations = {
         robinTitle: "Robin Boom",
         robinDesc: "Ένα εκρηκτικό 2D action top-down shooter.",
         robinLearn: "Φυσική 2D παιχνιδιών, μηχανικές βλημάτων (bullets), ανίχνευση συγκρούσεων (collisions), σχεδιασμός assets/animations και δημιουργία ιστορίας.",
-        lastTitle: "Last Down / Last Down 3D",
+        lastTitle: "Last Down 3D",
         lastDesc: "Ένα απαιτητικό concept παιχνιδιού που αναπτύχθηκε και εξερευνήθηκε τόσο σε 2D όσο και σε 3D περιβάλλοντα.",
         lastLearn: "Υλοποίηση συστημάτων inventory, μηχανικές 3D παιχνιδιών, φυσική βλημάτων, ανίχνευση συγκρούσεων και δημιουργία ιστορίας."
     }
@@ -76,12 +76,13 @@ function GameD({ setPage, lang, setLang }) {
                     <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
                     <span
                         className="lang_button"
-                        onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
+                        onClick={() => setLang(lang === 'el' ? '🇬🇧' : '🇬🇷')}
                         title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
                     >
                         {lang === 'el' ? '🇬🇧' : '🇬🇷'}
                     </span>
                 </div>
+
                 <p style={{ marginBottom: '40px', fontSize: '1.1rem' }}>{t.subtitle}</p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
@@ -172,7 +173,7 @@ function GameD({ setPage, lang, setLang }) {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed var(--main-border-color)', paddingBottom: '10px', marginBottom: '15px' }}>
                             <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>{t.lastTitle}</h2>
                             <div style={{ display: 'flex', gap: '15px' }}>
-                                <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaItchIo /></a>
+
                                 <a href="https://github.com/simigdalius/last-down" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaGithub /></a>
                             </div>
                         </div>
@@ -187,10 +188,7 @@ function GameD({ setPage, lang, setLang }) {
                                 </div>
                             </div>
 
-                            <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="game_thumbnail_link" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none', color: 'var(--accent-color)', flexShrink: 0 }}>
-                                <img src="/last-down.png" alt="Last Down" style={{ width: '120px', height: '120px', objectFit: 'cover', border: '2px solid var(--main-border-color)', borderRadius: '8px', opacity: 0.9 }} />
-                                <span style={{ marginTop: '8px', fontFamily: "'Fira Code', monospace", fontWeight: 'bold', fontSize: '0.9rem' }}>&gt; play</span>
-                            </a>
+
                         </div>
                     </div>
 
