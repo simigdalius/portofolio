@@ -96,7 +96,7 @@ function Webd({ setPage, lang, setLang }) {
                     {/* --- PROJECT 2: machineQuestioning --- */}
                     <div className="bento_box" style={{ cursor: 'default' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed var(--main-border-color)', paddingBottom: '10px', marginBottom: '15px' }}>
-                            <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>machineQuestioning</h2>
+                            <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>machine Questioning</h2>
                             <a href="https://github.com/simigdalius/machineQuestioning" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}>
                                 <FaGithub />
                             </a>
