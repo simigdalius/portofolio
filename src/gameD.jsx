@@ -76,10 +76,10 @@ function GameD({ setPage, lang, setLang }) {
                     <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
                     <span
                         className="lang_button"
-                        onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
+                        onClick={() => setLang(lang === 'el' ? '🇬🇧' : '🇬🇷')}
                         title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
                     >
-                        {lang === 'el' ? 'GB' : '🇬🇷'}
+                        {lang === 'el' ? '🇬🇧' : '🇬🇷'}
                     </span>
                 </div>
 
@@ -97,7 +97,8 @@ function GameD({ setPage, lang, setLang }) {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                        {/* ΠΡΟΣΘΗΚΗ: className="game_row" */}
+                        <div className="game_row" style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
                             <div style={{ flex: 1 }}>
                                 <p style={{ marginTop: 0 }}><strong>{t.overview}</strong> {t.doomDesc}</p>
                                 <p><strong>{t.learned}</strong> {t.doomLearn}</p>
@@ -123,7 +124,8 @@ function GameD({ setPage, lang, setLang }) {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                        {/* ΠΡΟΣΘΗΚΗ: className="game_row" */}
+                        <div className="game_row" style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
                             <div style={{ flex: 1 }}>
                                 <p style={{ marginTop: 0 }}><strong>{t.overview}</strong> {t.iceDesc}</p>
                                 <p><strong>{t.learned}</strong> {t.iceLearn}</p>
@@ -145,11 +147,12 @@ function GameD({ setPage, lang, setLang }) {
                             <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>{t.robinTitle}</h2>
                             <div style={{ display: 'flex', gap: '15px' }}>
                                 <a href="https://simigdalius.itch.io/robin-boom" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaItchIo /></a>
-                                <a href="https://github.com/simigdalius/RobinBoom" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaGithub /></a>
+                                <a href="https://github.com/simigdalius" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaGithub /></a>
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                        {/* ΠΡΟΣΘΗΚΗ: className="game_row" */}
+                        <div className="game_row" style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
                             <div style={{ flex: 1 }}>
                                 <p style={{ marginTop: 0 }}><strong>{t.overview}</strong> {t.robinDesc}</p>
                                 <p><strong>{t.learned}</strong> {t.robinLearn}</p>
@@ -170,12 +173,13 @@ function GameD({ setPage, lang, setLang }) {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed var(--main-border-color)', paddingBottom: '10px', marginBottom: '15px' }}>
                             <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>{t.lastTitle}</h2>
                             <div style={{ display: 'flex', gap: '15px' }}>
-
+                                <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaItchIo /></a>
                                 <a href="https://github.com/simigdalius/last-down" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}><FaGithub /></a>
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                        {/* ΠΡΟΣΘΗΚΗ: className="game_row" */}
+                        <div className="game_row" style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
                             <div style={{ flex: 1 }}>
                                 <p style={{ marginTop: 0 }}><strong>{t.overview}</strong> {t.lastDesc}</p>
                                 <p><strong>{t.learned}</strong> {t.lastLearn}</p>
@@ -184,7 +188,10 @@ function GameD({ setPage, lang, setLang }) {
                                 </div>
                             </div>
 
-
+                            <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="game_thumbnail_link" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none', color: 'var(--accent-color)', flexShrink: 0 }}>
+                                <img src="/last-down.png" alt="Last Down" style={{ width: '120px', height: '120px', objectFit: 'cover', border: '2px solid var(--main-border-color)', borderRadius: '8px', opacity: 0.9 }} />
+                                <span style={{ marginTop: '8px', fontFamily: "'Fira Code', monospace", fontWeight: 'bold', fontSize: '0.9rem' }}>&gt; play</span>
+                            </a>
                         </div>
                     </div>
 

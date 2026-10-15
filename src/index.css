@@ -617,6 +617,18 @@ h6,
 /* --- ΕΙΔΙΚΕΣ ΔΙΟΡΘΩΣΕΙΣ ΜΟΝΟ ΓΙΑ ΚΙΝΗΤΑ (Mobile Fixes) --- */
 @media (max-width: 900px) {
 
+  /* --- Επιδιόρθωση για τις εικόνες των παιχνιδιών στα κινητά --- */
+  .game_row {
+    flex-direction: column-reverse !important;
+    /* Βάζει την εικόνα πάνω και το κείμενο κάτω */
+    align-items: center !important;
+  }
+
+  .game_row>div {
+    width: 100% !important;
+    /* Αναγκάζει το κείμενο να απλώσει σε όλο το κουτί */
+  }
+
   /* 1. Τα Tabs γίνονται swipeable (scroll) οριζόντια */
   .tabs_wrapper {
     flex-wrap: nowrap;

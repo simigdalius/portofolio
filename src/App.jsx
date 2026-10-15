@@ -112,7 +112,7 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.portfolioTitle}</h1>
           <span className="lang_button" onClick={() => setLang(lang === 'el' ? 'en' : 'el')}>
-            {lang === 'el' ? 'GB' : '🇬🇷'}
+            {lang === 'el' ? '🇬🇧' : '🇬🇷'}
           </span>
         </div>
 

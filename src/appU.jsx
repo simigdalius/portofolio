@@ -86,7 +86,7 @@ function AppU({ setPage, lang, setLang }) {
                         onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
                         title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
                     >
-                        {lang === 'el' ? 'GB' : '🇬🇷'}
+                        {lang === 'el' ? '🇬🇧' : '🇬🇷'}
                     </span>
                 </div>
 
