@@ -24,7 +24,7 @@ const translations = {
         robinDesc: "An explosive, 2D action top-down shooter.",
         robinLearn: "2D game physics, bullet mechanics, collision detection, drawing assets and animations, and crafting an engaging story.",
         lastTitle: "Last Down 3D",
-        lastDesc: "A challenging game concept developed and explored in both 2D and 3D environments.",
+        lastDesc: "top down shooter 3D",
         lastLearn: "Implementing inventory systems, 3D game mechanics, bullet physics, collision detection, and story creation."
     },
     el: {
@@ -46,9 +46,9 @@ const translations = {
         iceLearn: "Ανάπτυξη 2D παιχνιδιών, διαχείριση πόρων, χρήση timers, και δημιουργία custom assets και animations.",
         robinTitle: "Robin Boom",
         robinDesc: "Ένα εκρηκτικό 2D action top-down shooter.",
-        robinLearn: "Φυσική 2D παιχνιδιών, μηχανικές βλημάτων (bullets), ανίχνευση συγκρούσεων (collisions), σχεδιασμός assets/animations και δημιουργία ιστορίας.",
+        robinLearn: "Φυσική 2D παιχνιδιών, μηχανικές σφαιρών (bullets), ανίχνευση συγκρούσεων (collisions), σχεδιασμός assets/animations και δημιουργία ιστορίας.",
         lastTitle: "Last Down 3D",
-        lastDesc: "Ένα απαιτητικό concept παιχνιδιού που αναπτύχθηκε και εξερευνήθηκε τόσο σε 2D όσο και σε 3D περιβάλλοντα.",
+        lastDesc: "top down shooter.",
         lastLearn: "Υλοποίηση συστημάτων inventory, μηχανικές 3D παιχνιδιών, φυσική βλημάτων, ανίχνευση συγκρούσεων και δημιουργία ιστορίας."
     }
 };
@@ -76,12 +76,13 @@ function GameD({ setPage, lang, setLang }) {
                     <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
                     <span
                         className="lang_button"
-                        onClick={() => setLang(lang === 'el' ? '🇬🇧' : '🇬🇷')}
+                        onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
                         title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
                     >
                         {lang === 'el' ? '🇬🇧' : '🇬🇷'}
                     </span>
                 </div>
+
 
                 <p style={{ marginBottom: '40px', fontSize: '1.1rem' }}>{t.subtitle}</p>
 
@@ -193,6 +194,9 @@ function GameD({ setPage, lang, setLang }) {
                     </div>
 
                 </div>
+            </div>
+            <div style={{ width: '100%', textAlign: 'center', marginTop: '40px', paddingTop: '20px', borderTop: '1px dashed var(--main-border-color)', opacity: 0.6, fontSize: '0.9rem', fontFamily: "'Fira Code', monospace" }}>
+                SYSTEM.ONLINE // © {new Date().getFullYear()} ANGELIKI SIMIGDALI // ALL SYSTEMS FUNCTIONAL.
             </div>
         </div>
     );
