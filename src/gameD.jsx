@@ -71,16 +71,28 @@ function GameD({ setPage, lang, setLang }) {
 
             <div className="folder_content">
 
-                {/* Επικεφαλίδα και Σημαία */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                    <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
-                    <span
-                        className="lang_button"
-                        onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
-                        title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
-                    >
-                        {lang === 'el' ? '🇬🇧' : '🇬🇷'}
-                    </span>
+                {/* Επικεφαλίδα, Itch.io και Σημαία */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                    <h1 className="title portfolio_main_title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
+
+                    {/* Ομαδοποιούμε το Itch.io και τη Σημαία στα δεξιά */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+
+                        {/* Το link για το προφίλ σου στο itch.io */}
+                        <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '2.2rem', marginTop: '5px' }} title="My itch.io Profile">
+                            <FaItchIo />
+                        </a>
+
+                        {/* Το κουμπί της γλώσσας */}
+                        <span
+                            className="lang_button"
+                            onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
+                            title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
+                        >
+                            {lang === 'el' ? '🇬🇧' : '🇬🇷'}
+                        </span>
+
+                    </div>
                 </div>
 
 
