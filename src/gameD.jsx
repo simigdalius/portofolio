@@ -76,13 +76,12 @@ function GameD({ setPage, lang, setLang }) {
                     <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
                     <span
                         className="lang_button"
-                        onClick={() => setLang(lang === 'el' ? '🇬🇧' : '🇬🇷')}
+                        onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
                         title={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
                     >
                         {lang === 'el' ? '🇬🇧' : '🇬🇷'}
                     </span>
                 </div>
-
                 <p style={{ marginBottom: '40px', fontSize: '1.1rem' }}>{t.subtitle}</p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import About from './About';
 import Webd from './Webd';     // <-- Προσθήκη
 import AppU from './appU';     // <-- Προσθήκη (Το Component να λέγεται AppU με κεφαλαίο)
@@ -9,6 +9,7 @@ import { FaPython, FaReact, FaHtml5, FaCss3Alt, FaJava, FaPhp, FaMicrochip, FaGi
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiFlask, SiGodotengine } from "react-icons/si";
 import { SiSqlite } from "react-icons/si";
+
 
 const translations = {
   en: {
@@ -38,6 +39,10 @@ const translations = {
 function App() {
   const [page, setPage] = useState('home');
   const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
 
   const t = translations[lang];
 
