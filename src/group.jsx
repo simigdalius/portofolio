@@ -103,7 +103,7 @@ function Group({ setPage, lang, setLang }) {
                         <p><strong>{t.learned}</strong> {t.smarthomeLearn}</p>
 
                         <div className="tech_icons" style={{ fontSize: '1.8rem', marginTop: '20px', justifyContent: 'flex-start' }}>
-                            <FaMicrochip title="ESP32 / Microcontrollers" />
+                            <FaMicrochip title="ESP32 / Microcontrollers" /><FaPython title="Python" /><FaReact title="React" />
                         </div>
                     </div>
 
@@ -121,7 +121,7 @@ function Group({ setPage, lang, setLang }) {
                         <p><strong>{t.learned}</strong> {t.cardLearn}</p>
 
                         <div className="tech_icons" style={{ fontSize: '1.8rem', marginTop: '20px', justifyContent: 'flex-start' }}>
-                            <FaPhp title="PHP" /> <IoLogoJavascript title="JavaScript" /> <FaReact title="React" /> <FaHtml5 title="HTML5" /> <FaCss3Alt title="CSS3" />
+                            <FaPhp title="PHP" /> <IoLogoJavascript title="JavaScript" /> <FaHtml5 title="HTML5" /> <FaCss3Alt title="CSS3" />
                         </div>
                     </div>
 
