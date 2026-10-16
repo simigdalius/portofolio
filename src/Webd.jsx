@@ -62,7 +62,7 @@ function Webd({ setPage, lang, setLang }) {
 
                 {/* Επικεφαλίδα και Σημαία στην ίδια ευθεία */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                    <h1 className="title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
+                    <h1 className="title portfolio_main_title" style={{ fontSize: '3rem', margin: 0 }}>{t.title}</h1>
                     <span
                         className="lang_button"
                         onClick={() => setLang(lang === 'el' ? 'en' : 'el')}

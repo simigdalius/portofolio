@@ -78,11 +78,6 @@ function GameD({ setPage, lang, setLang }) {
                     {/* Ομαδοποιούμε το Itch.io και τη Σημαία στα δεξιά */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
 
-                        {/* Το link για το προφίλ σου στο itch.io */}
-                        <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '2.2rem', marginTop: '5px' }} title="My itch.io Profile">
-                            <FaItchIo />
-                        </a>
-
                         {/* Το κουμπί της γλώσσας */}
                         <span
                             className="lang_button"
@@ -97,6 +92,10 @@ function GameD({ setPage, lang, setLang }) {
 
 
                 <p style={{ marginBottom: '40px', fontSize: '1.1rem' }}>{t.subtitle}</p>
+                <a href="https://simigdalius.itch.io" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '2.2rem', marginTop: '5px' }} title="My itch.io Profile">
+                    <FaItchIo />
+                </a>
+
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
 
