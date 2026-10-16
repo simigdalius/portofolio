@@ -94,7 +94,7 @@ function AppU({ setPage, lang, setLang }) {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
 
-                    {/* --- PROJECT 1: HorusAcces --- */}
+
                     <div className="bento_box" style={{ cursor: 'default' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed var(--main-border-color)', paddingBottom: '10px', marginBottom: '15px' }}>
                             <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>{t.horusTitle}</h2>
