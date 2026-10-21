@@ -20,7 +20,9 @@ const translations = {
         mqDesc: "A retro-styled web app for interactive machine learning quizzes.",
         mqLearn: "Managing SQLite database storage, implementing backend routing, and designing a cohesive retro-themed UI layout.",
         portDesc: "This very retro-minimal, single-page React website with a hacker/terminal aesthetic.",
-        portLearn: "Component-based state management (useState) in React, responsive CSS Grid/Flexbox layouts, and advanced CSS animations (CRT effects, animated grid backgrounds)."
+        portLearn: "Component-based state management (useState) in React, responsive CSS Grid/Flexbox layouts, and advanced CSS animations (CRT effects, animated grid backgrounds).",
+        nuwaLearn: "Building this project allowed me to deepen my full-stack development skills (React, Node.js, SQLite), successfully integrate advanced AI text-generation models (Google Gemini API) for dynamic content creation, and handle file processing within a seamless user interface.",
+        nuwaDesc: "A gamified productivity and study web application designed to turn daily tasks into a game. It combines time-tracking, to-do lists, and goal management with an RPG-style leveling system, while utilizing AI to instantly generate interactive, swipe-based quizzes from user-uploaded study materials."
     },
     el: {
         tabHome: "Αρχικη",
@@ -38,7 +40,10 @@ const translations = {
         mqDesc: "Ένα ρετρό web app για διαδραστικά κουίζ μηχανικής μάθησης.",
         mqLearn: "Διαχείριση αποθήκευσης σε βάση δεδομένων SQLite, υλοποίηση backend routing και σχεδιασμός ενός συνεπούς retro UI.",
         portDesc: "Αυτή ακριβώς η retro-minimal, single-page React ιστοσελίδα με hacker/terminal αισθητική.",
-        portLearn: "Διαχείριση κατάστασης με components (useState) στο React, responsive CSS Grid/Flexbox layouts, και προχωρημένα CSS animations (CRT effects, κινούμενα background)."
+        portLearn: "Διαχείριση κατάστασης με components (useState) στο React, responsive CSS Grid/Flexbox layouts, και προχωρημένα CSS animations (CRT effects, κινούμενα background).",
+        nuwaLearn: "Μια gamified διαδικτυακή εφαρμογή παραγωγικότητας που μετατρέπει την καθημερινή μελέτη σε παιχνίδι. Συνδυάζει εργαλεία διαχείρισης χρόνου και εργασιών με ένα σύστημα επιβράβευσης (XP & levels), ενώ αξιοποιεί Τεχνητή Νοημοσύνη (AI) για να δημιουργεί αυτόματα διαδραστικά quizzes από τις σημειώσεις του χρήστη.",
+        nuwaDesc: "Μέσα από αυτό το project εξέλιξα τις ικανότητές μου στο full-stack development (React, Node.js, SQLite), έμαθα να ενσωματώνω προηγμένα μοντέλα Τεχνητής Νοημοσύνης (Google Gemini API) για παραγωγή δυναμικού περιεχομένου και εξασκήθηκα στη διαχείριση αρχείων (file processing) σε πραγματικό χρόνο."
+
     }
 };
 
@@ -75,6 +80,23 @@ function Webd({ setPage, lang, setLang }) {
                 <p style={{ marginBottom: '40px', fontSize: '1.1rem' }}>{t.subtitle}</p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+
+                    {/* --- PROJECT 3: portofolio --- */}
+                    <div className="bento_box" style={{ cursor: 'default' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed var(--main-border-color)', paddingBottom: '10px', marginBottom: '15px' }}>
+                            <h2 className="game_title" style={{ margin: 0, color: 'var(--accent-color)' }}>nuwa-Gamified Productivity & Study App</h2>
+                            <a href="https://github.com/simigdalius/nuwa" target="_blank" rel="noreferrer" className="contact_link" style={{ fontSize: '1.8rem' }}>
+                                <FaGithub />
+                            </a>
+                        </div>
+
+                        <p style={{ marginTop: 0 }}><strong>{t.overview}</strong> {t.nuwaDesc}</p>
+                        <p><strong>{t.learned}</strong> {t.nuwaLearn}</p>
+
+                        <div className="tech_icons" style={{ fontSize: '1.8rem', marginTop: '20px', justifyContent: 'flex-start' }}>
+                            <FaReact title="React" /> <IoLogoJavascript title="JavaScript" /> <FaCss3Alt title="CSS3" /><SiSqlite title="SQLite" />
+                        </div>
+                    </div>
 
                     {/* --- PROJECT 1: GitPets --- */}
                     <div className="bento_box" style={{ cursor: 'default' }}>
